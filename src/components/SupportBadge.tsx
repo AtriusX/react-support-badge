@@ -70,8 +70,16 @@ export interface BadgeData extends HTMLProps<HTMLDivElement> {
 }
 
 export function SupportBadge({
-  // eslint-disable-next-line prettier/prettier
-  look, style, link, buttonText, children, width, flat, flatText, icon, className
+  icon,
+  buttonText,
+  link,
+  look,
+  flat,
+  flatText,
+  style,
+  children,
+  width,
+  className
 }: BadgeData) {
   const css = getShading(look, flat, flatText)
   const Icon = getIcon(icon)
