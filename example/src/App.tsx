@@ -10,7 +10,7 @@ const Badge = styled(SupportBadge)`
 `
 
 const App = () => {
-  return <Badge look="linear-gradient(to top right, purple 0%, magenta 100%)" width="20%" link="https://atrius.xyz" flatText>
+  return <Badge look="url(https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60)" width="15%" link="https://atrius.xyz" flatText>
     Check out my portfolio!
   </Badge>
 }

@@ -1,4 +1,4 @@
-import React, { HTMLProps } from 'react'
+import React, { HTMLProps, CSSProperties } from 'react'
 import { IconType } from 'react-icons'
 import styled, { createGlobalStyle } from 'styled-components'
 
@@ -15,8 +15,8 @@ const Badge = styled.div`
   width: 25%;
   padding: 1.2em;
   overflow: hidden;
-  font-size: 1.5em;
-  font-weight: 600;
+  /* font-size: 1.5em; */
+  /* font-weight: 600; */
   border-radius: 15px;
 `
 
@@ -106,10 +106,14 @@ export function SupportBadge({
     </span>
   )
 }
-
-function getShading(look?: string, flat?: boolean, flatText?: boolean) {
+function getShading(
+  look?: string,
+  flat?: boolean,
+  flatText?: boolean
+): CSSProperties {
   return {
-    background: look,
+    background: `${look} no-repeat center center`,
+    backgroundSize: '100% 100%',
     boxShadow: !flat ? '0 0 60px -30px #000' : undefined,
     textShadow: !flatText ? '0 0 5px #333' : undefined
   }
