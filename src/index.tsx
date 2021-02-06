@@ -1,3 +1,3 @@
-import SupportBadge from './components/SupportBadge'
+import { SupportBadge } from './components/SupportBadge'
 
 export { SupportBadge }

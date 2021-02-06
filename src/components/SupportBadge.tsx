@@ -1,7 +1,13 @@
 import React, { HTMLProps } from 'react'
 import { IconType } from 'react-icons'
-import { IoCash } from 'react-icons/io5'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
+
+const Global = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+  }
+`
 
 const Badge = styled.div`
   position: relative;
@@ -21,7 +27,6 @@ const Message = styled.p`
   z-index: 100;
   white-space: normal;
   color: white;
-  margin: 0;
 `
 
 const Link = styled.a`
@@ -64,12 +69,12 @@ export interface BadgeData extends HTMLProps<HTMLDivElement> {
   flatText?: boolean
 }
 
-function SupportBadge({
+export function SupportBadge({
   // eslint-disable-next-line prettier/prettier
   look, style, link, buttonText, children, width, flat, flatText, icon, className
 }: BadgeData) {
   const css = getShading(look, flat, flatText)
-  const Icon = getIcon(icon || IoCash)
+  const Icon = getIcon(icon)
   const content = (
     <span>
       <Message>{children}</Message>
@@ -78,16 +83,19 @@ function SupportBadge({
   )
 
   return (
-    <Badge
-      style={{ ...css, ...style, width: width || 'fit-content' }}
-      className={className}
-    >
-      {children !== undefined ? content : ''}
-      <Support style={css} href={link}>
-        <Icon size='1.5em' />
-        {buttonText || 'Support'}
-      </Support>
-    </Badge>
+    <span>
+      <Global />
+      <Badge
+        style={{ ...css, ...style, width: width || 'fit-content' }}
+        className={className}
+      >
+        {children ? content : ''}
+        <Support style={css} href={link}>
+          {Icon ? <Icon size='1.5em' /> : ''}
+          {buttonText || 'Support'}
+        </Support>
+      </Badge>
+    </span>
   )
 }
 
@@ -99,12 +107,12 @@ function getShading(look?: string, flat?: boolean, flatText?: boolean) {
   }
 }
 
-function getIcon(type: IconType) {
-  return styled(type)`
-    vertical-align: middle;
-    display: inline-block;
-    margin: 0.5em;
-  `
+function getIcon(type?: IconType) {
+  return type
+    ? styled(type)`
+        vertical-align: middle;
+        display: inline-block;
+        margin: 0.5em;
+      `
+    : undefined
 }
-
-export default SupportBadge
