@@ -1,7 +1,8 @@
 import React, { HTMLProps } from 'react'
 import styled, { CSSProperties } from 'styled-components'
+import { Link } from './Link'
 
-const Bubble = styled.a`
+const Bubble = styled(Link)`
   position: fixed;
   z-index: 1000;
   text-align: center;
@@ -26,12 +27,14 @@ export interface BubbleData extends HTMLProps<HTMLLinkElement> {
   link: string
   look?: string
   position?: Position
+  callback?: (e: HTMLElement) => void
 }
 
 export function SupportBubble({
   link,
   look,
   position,
+  callback,
   className,
   style
 }: BubbleData) {
@@ -59,7 +62,7 @@ export function SupportBubble({
     ...horizontal
   }
   return (
-    <Bubble className={className} href={link} style={bubbleStyle}>
+    <Bubble callback={callback} className={className} link={link} style={bubbleStyle}>
       Support
     </Bubble>
   )

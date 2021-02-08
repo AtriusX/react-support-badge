@@ -1,6 +1,7 @@
 import React, { HTMLProps, CSSProperties } from 'react'
 import { IconType } from 'react-icons'
 import styled, { createGlobalStyle } from 'styled-components'
+import { Link } from './Link'
 
 const Global = createGlobalStyle`
   * {
@@ -26,29 +27,12 @@ const Message = styled.p`
   color: white;
 `
 
-const Link = styled.a`
-  display: inline-block;
-  color: white;
-  text-decoration: none;
+const Support = styled(Link)`
+  font-weight: 600;
+  border-radius: 0.5em;
+  filter: hue-rotate(20deg);
   width: 100%;
   line-height: 3em;
-  transition: all 0.2s;
-  opacity: 0.8;
-
-  &:hover {
-    opacity: 1;
-  }
-`
-
-const Support = styled(Link)`
-  position: relative;
-  display: flex;
-  font-weight: 600;
-  align-items: center;
-  border-radius: 0.5em;
-  justify-content: center;
-  filter: hue-rotate(20deg);
-  overflow: hidden;
 
   &:hover {
     filter: hue-rotate(-20deg);
@@ -65,6 +49,7 @@ export interface BadgeData extends HTMLProps<HTMLDivElement> {
   buttonLook?: string
   flat?: boolean
   flatText?: boolean
+  callback?: (e: HTMLElement) => void
 }
 
 export function SupportBadge({
@@ -75,6 +60,7 @@ export function SupportBadge({
   buttonLook,
   flat,
   flatText,
+  callback,
   style,
   children,
   width,
@@ -88,7 +74,6 @@ export function SupportBadge({
       <br />
     </span>
   )
-
   return (
     <span>
       <Global />
@@ -98,8 +83,9 @@ export function SupportBadge({
       >
         {children ? content : ''}
         <Support
+          link={link}
           style={{ ...css, background: buttonLook || css.background }}
-          href={link}
+          callback={callback}
         >
           {Icon ? <Icon size='1.5em' /> : ''}
           {buttonText || 'Support'}

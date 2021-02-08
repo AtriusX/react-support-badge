@@ -1,5 +1,6 @@
 import React, { HTMLProps } from 'react'
 import styled, { CSSProperties } from 'styled-components'
+import { Link } from './Link'
 
 const Bar = styled.div`
   position: fixed;
@@ -22,19 +23,15 @@ const Text = styled.p`
   padding-left: 1em;
 `
 
-const Button = styled.a`
+const Button = styled(Link)`
   position: relative;
   right: 1em;
   margin-right: 1.5em;
   width: 10em;
-  display: block;
-  text-align: center;
   padding: 0.5em;
   color: white;
-  text-decoration: none;
   filter: hue-rotate(20deg);
   transition: all 0.2s;
-  user-select: none;
 
   &:hover {
     filter: hue-rotate(-20deg);
@@ -46,6 +43,7 @@ export interface BarData extends HTMLProps<HTMLDivElement> {
   link: string
   look?: string
   buttonLook?: string
+  callback?: (e: HTMLElement) => void
 }
 
 export function SupportBar({
@@ -53,6 +51,7 @@ export function SupportBar({
   link,
   look,
   buttonLook,
+  callback,
   children,
   className,
   style
@@ -67,13 +66,14 @@ export function SupportBar({
   return (
     <Bar className={className} style={barStyle}>
       <Text>{children || 'Please consider supporting me!'}</Text>
-      <Button style={buttonStyle} href={link}>
+      <Button style={buttonStyle} link={link} callback={callback}>
         {buttonText || 'Support'}
       </Button>
       <Button
+        link='#'
         style={buttonStyle}
-        onClick={(e) => {
-          const elem = e.currentTarget.parentElement!
+        callback={(e) => {
+          const elem = e.parentElement!
           elem.style.opacity = '0'
           elem.style.pointerEvents = 'none'
         }}
