@@ -62,6 +62,7 @@ export interface BadgeData extends HTMLProps<HTMLDivElement> {
   buttonText?: string
   link: string
   look?: string
+  buttonLook?: string
   flat?: boolean
   flatText?: boolean
 }
@@ -71,6 +72,7 @@ export function SupportBadge({
   buttonText,
   link,
   look,
+  buttonLook,
   flat,
   flatText,
   style,
@@ -86,6 +88,7 @@ export function SupportBadge({
       <br />
     </span>
   )
+
   return (
     <span>
       <Global />
@@ -94,7 +97,10 @@ export function SupportBadge({
         className={className}
       >
         {children ? content : ''}
-        <Support style={css} href={link}>
+        <Support
+          style={{ ...css, background: buttonLook || css.background }}
+          href={link}
+        >
           {Icon ? <Icon size='1.5em' /> : ''}
           {buttonText || 'Support'}
         </Support>
@@ -102,6 +108,7 @@ export function SupportBadge({
     </span>
   )
 }
+
 function getShading(
   look?: string,
   flat?: boolean,
