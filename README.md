@@ -13,17 +13,37 @@ npm install --save react-support-badge
 ## Usage
 
 ```tsx
-import React, { Component } from 'react'
+import react, { Component } from 'react'
+import { SupportBadge } from 'react-support-badge'
 
-import MyComponent from 'react-support-badge'
-import 'react-support-badge/dist/index.css'
+function Example() {
+  return <SupportBadge link='https://npmjs.com/' look='red' />
+}
+
+// Or
 
 class Example extends Component {
+
   render() {
-    return <MyComponent />
+    return <SupportBadge link='https://npmjs.com/' look='red' />
   }
 }
 ```
+
+## Properties
+
+- icon
+  - Sets an icon for the support button. (Uses [react-icons]('https://npmjs.com/react-icons/'))
+- buttonText
+  - Sets the support button text.
+- link **(required)**
+  - Sets the link to redirect to once pressed.
+- look
+  - Sets the look of the badge. (Supports solid colors, images, and gradients)
+- flat
+  - Disables the box shadow effect on the badge and support buttons when inactive.
+- flatText
+  - Disables the text shadow effect on all text on the badge.
 
 ## License
 
