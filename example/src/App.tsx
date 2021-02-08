@@ -1,5 +1,5 @@
 import React from 'react'
-import { SupportBadge } from 'react-support-badge'
+import { SupportBadge, SupportBar, SupportBubble } from 'react-support-badge'
 import styled from 'styled-components'
 
 const Badge = styled(SupportBadge)`
@@ -10,9 +10,13 @@ const Badge = styled(SupportBadge)`
 `
 
 const App = () => {
-  return <Badge look="url(https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60)" link="https://atrius.xyz" flatText>
-    Check out my portfolio!
-  </Badge>
+  return <>
+    <Badge look="linear-gradient(to bottom right, purple 0%, pink 100%)" buttonLook="magenta" link="https://atrius.xyz" flatText>
+      Check out my portfolio!
+    </Badge>
+    <SupportBar link="#" look="linear-gradient(to bottom right, purple 0%, #06F 150%)" />
+    <SupportBubble link="#" position="top-right" />
+  </>
 }
 
 export default App
