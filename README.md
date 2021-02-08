@@ -17,7 +17,9 @@ import react, { Component } from 'react'
 import { SupportBadge } from 'react-support-badge'
 
 function Example() {
-  return <SupportBadge link='https://npmjs.com/' look='red' />
+  return <SupportBadge link='https://npmjs.com/' look='red'>
+    Please consider supporting me!
+  </SupportBadge>
 }
 
 // Or
@@ -25,7 +27,9 @@ function Example() {
 class Example extends Component {
 
   render() {
-    return <SupportBadge link='https://npmjs.com/' look='red' />
+    return <SupportBadge link='https://npmjs.com/' look='red'>
+      Please consider supporting me!
+    </SupportBadge>
   }
 }
 ```
