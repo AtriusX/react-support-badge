@@ -48,6 +48,8 @@ class Example extends Component {
   - Disables the box shadow effect on the badge and support buttons when inactive.
 - **flatText**
   - Disables the text shadow effect on all text on the badge.
+- **callback**
+  - Callback function to run before redirecting to the support badge location.
 
 ## Other Features
 
