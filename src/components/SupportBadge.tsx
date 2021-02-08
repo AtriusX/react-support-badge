@@ -12,11 +12,8 @@ const Global = createGlobalStyle`
 const Badge = styled.div`
   position: relative;
   display: inline-block;
-  width: 25%;
   padding: 1.2em;
   overflow: hidden;
-  /* font-size: 1.5em; */
-  /* font-weight: 600; */
   border-radius: 15px;
 `
 
@@ -89,7 +86,6 @@ export function SupportBadge({
       <br />
     </span>
   )
-
   return (
     <span>
       <Global />
