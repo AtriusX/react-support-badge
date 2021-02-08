@@ -36,18 +36,22 @@ class Example extends Component {
 
 ## Properties
 
-- icon
+- **icon**
   - Sets an icon for the support button. (Uses [react-icons]('https://npmjs.com/react-icons/'))
-- buttonText
+- **buttonText**
   - Sets the support button text.
-- link **(required)**
+- **link *(required)***
   - Sets the link to redirect to once pressed.
-- look
+- **look**
   - Sets the look of the badge. (Supports solid colors, images, and gradients)
-- flat
+- **flat**
   - Disables the box shadow effect on the badge and support buttons when inactive.
-- flatText
+- **flatText**
   - Disables the text shadow effect on all text on the badge.
+
+## Other Features
+
+If you would prefer to display a support message in a different way, you can check out `<SupportBar />` or `<SupportBubble />`. More items may get added later on in the future.
 
 ## License
 
