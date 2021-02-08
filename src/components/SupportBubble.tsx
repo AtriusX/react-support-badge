@@ -62,7 +62,12 @@ export function SupportBubble({
     ...horizontal
   }
   return (
-    <Bubble callback={callback} className={className} link={link} style={bubbleStyle}>
+    <Bubble
+      callback={callback}
+      className={className}
+      link={link}
+      style={bubbleStyle}
+    >
       Support
     </Bubble>
   )
