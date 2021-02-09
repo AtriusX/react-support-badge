@@ -20,13 +20,21 @@ export interface LinkData extends HTMLProps<HTMLAnchorElement> {
   callback?: (e: HTMLElement) => void
 }
 
-export function Link({ link, style, className, callback, children }: LinkData) {
+export function Link({
+  link,
+  style,
+  className,
+  id,
+  callback,
+  children
+}: LinkData) {
   const call = (e: HTMLElement) => {
     if (callback) callback(e)
     window.location.href = link
   }
   return (
     <LinkItem
+      id={id}
       className={className}
       style={style}
       onClick={(e) => call(e.currentTarget)}

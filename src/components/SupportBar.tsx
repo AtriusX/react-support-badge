@@ -53,6 +53,7 @@ export function SupportBar({
   buttonLook,
   callback,
   children,
+  id,
   className,
   style
 }: BarData) {
@@ -64,7 +65,7 @@ export function SupportBar({
     background: buttonLook || barStyle.background
   }
   return (
-    <Bar className={className} style={barStyle}>
+    <Bar id={id} className={className} style={barStyle}>
       <Text>{children || 'Please consider supporting me!'}</Text>
       <Button style={buttonStyle} link={link} callback={callback}>
         {buttonText || 'Support'}

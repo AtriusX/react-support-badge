@@ -64,6 +64,7 @@ export function SupportBadge({
   style,
   children,
   width,
+  id,
   className
 }: BadgeData) {
   const css = getShading(look, flat, flatText)
@@ -78,6 +79,7 @@ export function SupportBadge({
     <span>
       <Global />
       <Badge
+        id={id}
         style={{ ...css, ...style, width: width || 'fit-content' }}
         className={className}
       >

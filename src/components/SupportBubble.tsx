@@ -35,6 +35,7 @@ export function SupportBubble({
   look,
   position,
   callback,
+  id,
   className,
   style
 }: BubbleData) {
@@ -63,6 +64,7 @@ export function SupportBubble({
   }
   return (
     <Bubble
+      id={id}
       callback={callback}
       className={className}
       link={link}
